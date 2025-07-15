@@ -1,0 +1,604 @@
+﻿.form {
+    width: 100%;
+    margin: 20px auto;
+    font-family: 'Ubuntu';
+
+    .form-row {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 21px;
+        position: relative;
+        column-gap: 21px;
+
+        @include respond-to(mobile) {
+            flex-direction: column;
+            row-gap: 21px;
+        }
+
+        .input-container {
+            position: relative;
+            width: 50%;
+
+            @include respond-to(mobile) {
+                width: 100%;
+            }
+
+            input[type='text'],
+            input[type='email'],
+            input[type='date'],
+            input[type='tel'] {
+                width: 100%;
+                height: 48px;
+                border: 1.5px solid color(inputBorderColor);
+                border-radius: 8px;
+                background-color: color(inputBg);
+                padding: 16px 15px;
+                font-family: 'Ubuntu';
+                font-weight: 400;
+                font-size: 1rem;
+                letter-spacing: -0.5px;
+                outline: none;
+                color: color(inputCopy);
+
+                &::placeholder {
+                    color: color(inputCopy);
+                    font-family: 'Ubuntu';
+                    font-weight: 400;
+                    font-size: 1rem;
+                }
+
+                &:focus-within {
+                    outline: 1px dashed color(inputOutline);
+                    outline-offset: 3px;
+                }
+
+                &.error {
+                    border: 1px solid color(error);
+                }
+            }
+
+            .label-input {
+                &.sr-only {
+                    position: absolute;
+                    width: 1px;
+                    height: 1px;
+                    padding: 0;
+                    margin: -1px;
+                    overflow: hidden;
+                    clip: rect(0,0,0,0);
+                    white-space: nowrap;
+                    border: 0;
+                }
+            }
+
+            label {
+                &.error {
+                    position: absolute;
+                    left: 0;
+                    top: unset;
+                    bottom: -16px !important;
+                    color: color(error);
+                    font-family: 'Ubuntu';
+                    font-weight: 400;
+                    font-size: 12px;
+                    padding: 0 0 0 5px;
+                    z-index: 3;
+                    display: block;
+                }
+            }
+
+            &.dob-picker {
+                .calendar-icon {
+                    position: absolute;
+                    right: 12px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 24px;
+                    height: 24px;
+                    background: url(/assets/images/calendar-ico.png) no-repeat center;
+                    background-size: 24px;
+                    padding: 16px;
+                    cursor: pointer;
+
+                    &:focus-within {
+                        outline: 1px dashed color(inputOutline);
+                        outline-offset: 2px;
+                    }
+                }
+            }
+        }
+
+        &.checkbox-row {
+            position: relative;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0.5em;
+            flex-wrap: nowrap;
+            padding: 6px 0 0;
+            margin-bottom: 32px;
+
+            .form-control {
+                font-family: 'Ubuntu';
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 20px;
+                color: color(inputCopy);
+                display: grid;
+                grid-template-columns: 1em auto;
+                gap: 0.5em;
+
+                & + .form-control {
+                    margin-top: 1em;
+                }
+
+                a {
+                    font-family: 'Ubuntu';
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: color(inputCopy);
+                    text-decoration: none;
+                    cursor: pointer;
+
+                    &:focus-within {
+                        outline: 1px dashed color(inputOutline);
+                        outline-offset: 2px;
+                    }
+                }
+
+                input[type="checkbox"] {
+                    -webkit-appearance: none; /* Add if not using autoprefixer */
+                    appearance: none; /* Remove most all native input styles */
+                    width: 24px;
+                    height: 24px;
+                    border: 1px solid color(inputBorderColor);
+                    border-radius: 3.5px;
+                    background-color: color(inputBg); /* For iOS < 15 */
+                    position: relative;
+                    display: inline-block;
+                    cursor: pointer;
+
+                    &:before {
+                        content: "";
+                        width: 24px;
+                        height: 24px;
+                        background-color: transparent;
+                        border-radius: 3.5px;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%) scale(0);
+                        transition: transform 0.2s ease, background-color 0.2s ease;
+                    }
+
+                    &:checked {
+                        border-color: color(inputBorderColor);
+
+                        &:before {
+                            background-color: color(checkboxBg);
+                            transform: translate(-50%, -50%) scale(1);
+                            content: "";
+                            background: url(/assets/images/checkmark-ico.png) no-repeat center;
+                            background-size: contain;
+                            pointer-events: none;
+                        }
+                    }
+
+                    &:focus-within {
+                        outline: 1px dashed color(inputOutline);
+                        outline-offset: 3px;
+                    }
+
+                    &.error {
+                        border: 1px solid color(error);
+                    }
+                }
+
+                span {
+                    padding-left: 15px;
+                }
+            }
+
+            label {
+                width: unset;
+
+                &.error {
+                    position: absolute;
+                    left: 19px;
+                    bottom: -22px;
+                    color: color(error);
+                    font-family: 'Ubuntu';
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 18px;
+                    padding: 0 0 0 20px;
+                    z-index: 3;
+                    display: block;
+                }
+
+                &.checkbox-label {
+                    .hidden {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &.single-radio {
+            .event-choice-group {
+                display: flex;
+                gap: 1rem;
+                flex-wrap: wrap;
+                border: none;
+                padding: 10px 0 20px;
+
+                @include respond-to(mobile) {
+                    flex-direction: column;
+                    padding: 10px 0 0;
+                }
+
+                .radio-label {
+                    font-family: 'Ubuntu';
+                    font-weight: 400;
+                    font-size: 1.25rem;
+                    line-height: 1.04%;
+                    text-transform: capitalize;
+                    color: color(formHeading);
+                    margin: 0 0 20px;
+
+                    @include respond-to(mobile) {
+                        font-size: 1rem;
+                    }
+                }
+
+                .event-card {
+                    position: relative;
+                    flex: 1 1 48%;
+                    min-height: 160px;
+
+                    input[type="radio"] {
+                        opacity: 0;
+                        position: absolute;
+                        pointer-events: none;
+
+                        &:checked + .event-card__label {
+                            border-color: color(radioCheckedCardBorder);
+                            background: color(radioCheckedLabelBg);
+
+                            .custom-radio {
+                                background-color: color(customRadioCheckedBg);
+                                border-color: color(customRadioCheckedBorder);
+
+                                &:before {
+                                    transform: translate(-50%, -50%) scale(1);
+                                }
+                            }
+
+                            .event-card__content {
+                                color: color(radioCheckedCardCopy);
+
+                                p {
+                                    color: color(radioCheckedCardCopy);
+                                }
+                            }
+                        }
+
+                        &:focus + .event-card__label {
+                            outline: 1px dashed color(inputOutline);
+                            outline-offset: 4px;
+                        }
+
+                        &:hover + .event-card__label {
+                            border-color: color(radioLabelHoverBg);
+                            background: color(radioLabelHoverBg);
+
+                            .custom-radio {
+                                background-color: color(customRadioHoverBg);
+                                border-color: color(customRadioHoverBorder);
+                            }
+
+                            .event-card__content {
+                                color: color(radioLabelHoverCopy);
+
+                                p {
+                                    color: color(radioLabelHoverCopy);
+                                }
+                            }
+                        }
+
+                        &.error + .event-card__label {
+                            .custom-radio {
+                                border: 1px solid color(error);
+                            }
+                        }
+                    }
+
+                    .event-card__label {
+                        display: flex;
+                        align-items: flex-start;
+                        column-gap: 37px;
+                        padding: 17px;
+                        min-height: inherit;
+                        border: 2px solid color(radioLabelBorder);
+                        border-radius: 8px;
+                        cursor: pointer;
+                        background-color: color(radioLabelBg);
+                        transition: border-color 0.3s, background 0.3s;
+
+                        @include respond-to(mobile) {
+                            column-gap: 24px;
+                            padding: 21px 12px;
+                        }
+
+                        .custom-radio {
+                            position: relative;
+                            width: 24px;
+                            height: 24px;
+                            border: 2px solid color(customRadioBorder);
+                            border-radius: 50%;
+                            background-color: transparent;
+                            flex-shrink: 0;
+                            transition: border-color 0.3s, background 0.3s;
+
+                            @include respond-to(mobile) {
+                                width: 16px;
+                                height: 16px;
+                            }
+
+                            &:before {
+                                content: "";
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                width: 12px;
+                                height: 12px;
+                                background-color: color(customRadioBg);
+                                border-radius: 50%;
+                                transform: translate(-50%, -50%) scale(0);
+                                transition: transform 0.3s ease;
+
+                                @include respond-to(mobile) {
+                                    width: 8px;
+                                    height: 8px;
+                                }
+                            }
+                        }
+
+                        .event-card__content {
+                            color: color(radioLabelCopy);
+
+                            strong {
+                                display: block;
+                                font-family: 'Mouse Memoirs';
+                                font-weight: 400;
+                                font-size: 1.5rem;
+                                line-height: 0.8;
+                                letter-spacing: 1px;
+                                margin-bottom: 12px;
+
+                                @include respond-to(mobile) {
+                                    font-size: 1.125rem;
+                                    line-height: 0.7;
+                                    letter-spacing: 0.65px;
+                                    margin-bottom: 8px;
+                                }
+                            }
+
+                            p {
+                                font-family: 'Ubuntu';
+                                font-weight: 400;
+                                font-size: 0.875rem;
+                                line-height: 1.4;
+
+                                @include respond-to(mobile) {
+                                    line-height: 1.2;
+                                }
+
+                                strong {
+                                    font-family: 'Ubuntu';
+                                    font-weight: 700;
+                                    font-size: 1rem;
+                                    line-height: 1.3;
+                                    margin-bottom: 8px;
+
+                                    @include respond-to(mobile) {
+                                        font-size: 0.875rem;
+                                        margin-bottom: 6px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                label {
+                    &.error {
+                        position: absolute;
+                        left: 0;
+                        top: unset;
+                        bottom: -1px !important;
+                        color: color(error);
+                        font-family: 'Ubuntu';
+                        font-weight: 400;
+                        font-size: 12px;
+                        padding: 0 0 0 5px;
+                        z-index: 3;
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        &.select-row {
+            label {
+                &.sr-only {
+                    position: absolute;
+                    width: 1px;
+                    height: 1px;
+                    padding: 0;
+                    margin: -1px;
+                    overflow: hidden;
+                    clip: rect(0,0,0,0);
+                    white-space: nowrap;
+                    border: 0;
+                }
+            }
+
+            .select-body {
+                position: relative;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                select {
+                    width: 100%;
+                    height: 48px;
+                    border: 1.5px solid color(selectBorder);
+                    border-radius: 8px;
+                    background-color: color(selectBg);
+                    padding: 8px 15px;
+                    font-family: 'Ubuntu';
+                    font-weight: 400;
+                    font-size: 1rem;
+                    letter-spacing: -0.5px;
+                    outline: none;
+                    color: color(selectCopy);
+                    appearance: none;
+
+                    &:focus {
+                        outline: 1px dashed color(inputOutline);
+                        outline-offset: 3px;
+                    }
+
+                    &.error {
+                        border: 1px solid color(error);
+                    }
+                }
+                // this styling is recognized only by Firefox
+                @-moz-document url-prefix() {
+                    select {
+                        color: color(selectCopy) !important;
+
+                        &.valid {
+                            color: color(selectCopy) !important;
+                        }
+                    }
+                }
+            }
+
+            .select-icon {
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                pointer-events: none;
+
+                svg {
+                    width: 14px;
+                    height: 8px;
+                }
+            }
+        }
+
+        &.text-only {
+            display: block;
+            margin: 21px 0 35px;
+
+            @include respond-to(mobile) {
+                margin: 0 0 16px;
+            }
+
+            h2 {
+                font-family: 'Ubuntu';
+                font-weight: 400;
+                font-size: 1.25rem;
+                line-height: 1.04;
+                text-transform: capitalize;
+                text-align: left;
+                color: color(formHeading);
+                margin: 32px 0 0;
+
+                @include respond-to(mobile) {
+                    font-size: 1rem;
+                    line-height: 1.3;
+                }
+            }
+        }
+
+        .g-recaptcha {
+            display: block;
+            width: 100%;
+            overflow: hidden;
+        }
+    }
+
+    .divider {
+        width: 100%;
+        height: 0.5px;
+        background-color: color(black);
+        margin: 20px auto 32px;
+    }
+
+    .form-submit {
+        width: 100%;
+        position: relative;
+        margin-top: 32px;
+
+        @include respond-to(mobile) {
+            margin-top: 40px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            max-width: 450px;
+            line-height: 60px;
+        }
+
+        input[type='submit'] {
+
+            &:disabled {
+                opacity: 0.5;
+                pointer-events: none;
+                cursor: not-allowed;
+
+                &:focus,
+                &:hover {
+                    background: initial;
+                    color: initial;
+                    border: initial;
+                    outline: none;
+                }
+            }
+        }
+
+        label {
+            &.sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0,0,0,0);
+                white-space: nowrap;
+                border: 0;
+            }
+        }
+
+        .submittingText {
+            display: none;
+            font-family: 'Ubuntu';
+            font-size: 18px;
+            line-height: 60px;
+            color: color(primaryText);
+            margin: auto;
+            text-align: center;
+        }
+    }
+}

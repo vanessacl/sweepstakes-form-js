@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- CookieYes -->    
+    <!--<script type="text/javaScript" src="https://cdn-cookieyes.com/client_data/ADD_YOUR_COOKIEYESID_KEY/script.js"></script>-->
+
+    <!-- Recaptcha -->
+    <!--<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>-->  
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Rock Alternative Concert Sweepstakes</title>
+   <link rel="icon" href="./favicon.ico">
+  <meta name="description" content="Your dream concert awaits at the Rock Alternative Festival. Enter for your chance to win." />
+  <meta property="og:title" content="The Rock Alternative Concert Sweepstakes" />
+  <meta property="og:description" content="Your dream concert awaits at the Rock Alternative Festival. Enter for your chance to win." />
+  <meta property="og:image" content="./assets/images/og.png" />       
+  <meta name="twitter:card" content="summary_large_image" />   
+  <meta name="twitter:title" content="The Rock Alternative Concert Sweepstakes" />
+  <meta name="twitter:description" content="Your dream concert awaits at the Rock Alternative Festival. Enter for your chance to win." />
+  <meta name="twitter:image" content="./assets/images/og.png" />
+  
+  <link rel="stylesheet" href="./lib/flatpickr/css/flatpickr.min.css">
+  <link rel="stylesheet" href="./css/index.css" />
+</head>
+<body>
+  <header>
+    <div class="hero"></div>
+  </header>
+  <main>
+    <section class="content-center transition">
+      <h1>IF YOU WIN IT, YOU WILL ROCK!</h1>
+      <p class="intro">Your dream concert awaits! Enter your details below for a chance to win four (4) tickets for you and three friends to an unforgettable music experience at the iconic Rock Alternative Festival.</p>
+      <div class="divider"></div>
+      <p class="required-copy"><span>*</span>Required fields</p>               
+        <form id="sweepsForm" class="form" autocomplete="off" novalidate>
+          <div class="form-row single-radio">
+            <fieldset class="event-choice-group" role="radiogroup" aria-labelledby="eventChoiceLabel">
+              <legend id="eventChoiceLabel" class="radio-label">Choose your perfect day*</legend>
+
+              <div class="event-card">
+                <input type="radio" id="eventSaturday" name="eventDay" value="saturday"/>
+                <label for="eventSaturday" class="event-card__label">
+                  <span class="custom-radio"></span>
+                  <div class="event-card__content">
+                      <strong>FRIDAY, SEPTEMBER 5</strong>
+                      <p><strong>Foo Fighters</strong><span>Kick off the Rock Alternative Festival with an electric performance by Foo Fighters, joined by special guests 3 Doors Down, Atlas Genius, and Papa Roach.</span></p>
+                  </div>                            
+                </label>
+              </div>
+
+              <div class="event-card">
+                <input type="radio" id="eventSunday" name="eventDay" value="sunday" />
+                <label for="eventSunday" class="event-card__label">
+                  <span class="custom-radio"></span>
+                  <div class="event-card__content">
+                    <strong>SATURDAY, SEPTEMBER 6</strong>
+                    <p><strong>Red Hot Chili Peppers</strong><span>Get Ready for an unforgettable night with Red Hot Chili Peppers, plus alt-rock legends Paramore, Creed, and Kings of Leon</span></p>
+                  </div>                           
+                </label>
+              </div>
+            </fieldset>                
+          </div>
+          <div class="form-row text-only">
+            <p>Both full-day events (11am-11pm) include exclusive access to the Rock Alternative Festival—your premium spot for fresh custard, spectacular concert views, and a few surprises. This is your chance to make memories where dreams come true!</p>
+            <p class="semi-bold">For complete event details, visit:</p>
+            <p>Foo Fighters: <a href="#" target="_blank">https:/concertfix.com/FooFighters</a></p>
+            <p>Red Hot Chili Peppers: <a href="#" target="_blank">https:/concertfix.com/RedHotChiliPeppers</a></p>
+            <h2>Enter Your Details here</h2>
+          </div>
+          <div class="form-row">
+            <div class="input-container">
+              <input type="text" id="firstName" name="firstName" placeholder="First name*">
+              <label for="firstName" class="label-input sr-only">First name</label>
+            </div>
+            <div class="input-container">
+              <input type="text" id="lastName" name="lastName" placeholder="Last name*">
+              <label for="lastName" class="label-input sr-only">Last name</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="input-container">
+              <input type="email" id="email" name="email" placeholder="Email address*">
+              <label for="email" class="label-input sr-only">Email address</label>
+            </div>
+            <div class="input-container dob-picker">
+              <input type="text" id="dob" name="dob" placeholder="Date of birth*">
+              <span class="calendar-icon" tabindex="0" role="button" aria-label="Open date picker"></span>
+              <label for="dob" class="label-input sr-only">Date of birth</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="input-container">
+              <input type="text" id="street" name="street" placeholder="Street address*">
+              <label for="street" class="label-input sr-only">Street address</label>
+            </div>
+            <div class="input-container">
+              <input type="text" id="city" name="city" placeholder="City*">
+              <label for="city" class="label-input sr-only">City</label>
+            </div>
+          </div>
+          <div class="form-row select-row">
+            <div class="input-container">                                      
+              <label for="state" class="label-input sr-only">State</label>
+              <div id="select-category-container" class="select-body">
+                <select id="state" name="state">
+                  <option value="" selected="selected" disabled>State*</option>
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="AR">Arkansas</option>
+                  <option value="CA">California</option>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                  <option value="DC">District Of Columbia</option>
+                  <option value="FL">Florida</option>
+                  <option value="GA">Georgia</option>
+                  <option value="HI">Hawaii</option>
+                  <option value="ID">Idaho</option>
+                  <option value="IL">Illinois</option>
+                  <option value="IN">Indiana</option>
+                  <option value="IA">Iowa</option>
+                  <option value="KS">Kansas</option>
+                  <option value="KY">Kentucky</option>
+                  <option value="LA">Louisiana</option>
+                  <option value="ME">Maine</option>
+                  <option value="MD">Maryland</option>
+                  <option value="MA">Massachusetts</option>
+                  <option value="MI">Michigan</option>
+                  <option value="MN">Minnesota</option>
+                  <option value="MS">Mississippi</option>
+                  <option value="MO">Missouri</option>
+                  <option value="MT">Montana</option>
+                  <option value="NE">Nebraska</option>
+                  <option value="NV">Nevada</option>
+                  <option value="NH">New Hampshire</option>
+                  <option value="NJ">New Jersey</option>
+                  <option value="NM">New Mexico</option>
+                  <option value="NY">New York</option>
+                  <option value="NC">North Carolina</option>
+                  <option value="ND">North Dakota</option>
+                  <option value="OH">Ohio</option>
+                  <option value="OK">Oklahoma</option>
+                  <option value="OR">Oregon</option>
+                  <option value="PA">Pennsylvania</option>
+                  <option value="RI">Rhode Island</option>
+                  <option value="SC">South Carolina</option>
+                  <option value="SD">South Dakota</option>
+                  <option value="TN">Tennessee</option>
+                  <option value="TX">Texas</option>
+                  <option value="UT">Utah</option>
+                  <option value="VT">Vermont</option>
+                  <option value="VA">Virginia</option>
+                  <option value="WA">Washington</option>
+                  <option value="WV">West Virginia</option>
+                  <option value="WI">Wisconsin</option>
+                  <option value="WY">Wyoming</option>
+                </select>
+              </div>
+              <div class="select-icon">
+                <svg width="15" height="9" viewBox="0 0 15 9" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.7071 1.70711L8.34315 8.07107C7.95262 8.46159 7.31946 8.46159 6.92893 8.07107L0.564971 1.70711C0.174446 1.31658 0.174446 0.683417 0.564971 0.292893C0.955496 -0.0976317 1.58866 -0.0976317 1.97919 0.292893L7.63604 5.94975L13.2929 0.292893C13.6834 -0.0976312 14.3166 -0.0976311 14.7071 0.292893C15.0976 0.683418 15.0976 1.31658 14.7071 1.70711Z" fill="black" />
+                </svg>
+              </div>
+            </div>
+            <div class="input-container">
+              <input type="tel" id="zipCode" name="zipCode" maxlength="5" placeholder="Zip*">
+              <label for="zipCode" class="label-input sr-only">Zip</label>
+            </div>
+          </div>            
+          <div class="form-row checkbox-row">
+            <label class="form-control">
+              <input type="checkbox" name="optInRules" id="optInRules" />
+              <span id="checkboxCopy">
+                  By clicking this field, I verify that I am Eighteen (18) years of age or older, and a legal U.S. resident residing in the States of Iowa, Illinois, Wisconsin, or Minnesota at time of entry. I acknowledge that submission of my entry constitutes acceptance of the Official Rules and Sponsor’s Privacy Policy and that I have had the opportunity to review them before entering. I agree to be contacted by email for purposes of Sweepstakes administration if necessary.*
+              </span>
+            </label>
+          </div>            
+          <div class="form-row checkbox-row">
+            <label class="form-control">
+              <input type="checkbox" name="optInEmail" id="optInEmail" />
+              <span>
+                  Yes, I want the inside scoop on deals, flavors and more via marketing emails from Culver’s.
+              </span>
+            </label>
+          </div>            
+          <!--<div class="form-row">                
+            <div id="sweeps-recaptcha" class="g-recaptcha"></div>
+            <p id="recaptcha-error" class="error" style="display: none;">Please check recaptcha again.</p>
+          </div>-->           
+          <div class="form-submit">
+            <span class="submittingText">Submitting..</span>
+            <input id="SubmitForm" type="submit" name= "submitBtn" value="SUBMIT" class="btn btn-submit" /> <!--Add attribute "disabled" when using reCAPTCHA-->
+            <label for="submitBtn" class="sr-only">SUBMIT</label>                
+          </div>           
+        </form>
+    </section>
+  </main>
+  <footer >
+    <section class="content-center">
+      <div class="footer-links">
+        <a href="#" target="_blank" rel="noopener noreferrer">Official Rules</a>
+        <div class="divider"></div>
+        <a href="#" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+        <div class="divider"></div>
+        <a href="CookiePolicy.html" target="_blank" rel="noopener noreferrer">Cookie Policy</a>
+      </div>
+      <div class="footer-copy">
+        <p><span>NO PURCHASE NECESSARY; void in where prohibited.</span> Open to legal U.S. residents residing in Oregon and Washington state who are 18+ at time of entry. Sweepstakes begins at 12:00:00 a.m. PT on August 14, 2025, and ends at 11:59:59 p.m. CT on September 1, 2025.</p>
+        <p>&copy 2025 VCL. All rights reserved.</p>
+      </div>
+    </section>        
+  </footer>
+  <div class="overlay-error-message" style="display:none;">
+    <div class="modal-container">
+      <h3>OOPS!</h3>
+      <p>Looks like you've already entered today. Come back tomorrow for another entry!</p>
+      <a href="/" class="btn" data-home>Okay</a>
+    </div>
+  </div>
+
+  <script src="./lib/jquery/dist/jquery.min.js"></script>
+  <script src="./lib/jquery-validation/dist/jquery.validate.min.js"></script>
+  <script src="./lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+  <script src="./lib/flatpickr/js/flatpickr.min.js"> </script>
+  <script src="./lib/inputmask/dist/inputmask.min.js"></script>   
+  <script src="./js/utils.js"></script>  
+
+  <script>
+    utils.init();
+
+    /*var onloadCallback = function() {
+      grecaptcha.render("sweeps-recaptcha", {
+          sitekey: "@recaptchaSiteKey",
+          callback: function () {
+              utils._recaptcha(); //runs after user completes reCAPTCHA
+          }
+      });                      
+    };*/
+  </script> 
+</body>
+</html>

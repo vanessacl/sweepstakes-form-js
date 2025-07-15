@@ -1,0 +1,39 @@
+﻿@use "sass:map";
+
+
+@function color($key) {
+    @if map-has-key($colors, $key) {
+        @return map-get($colors, $key);
+    }
+
+    @warn "Unknown `#{$key}` in $colors.";
+    @return null;
+}
+
+@function z($key) {
+    @if map-has-key($z-layers, $key) {
+        @return map-get($z-layers, $key);
+    }
+
+    @warn "Unknown `#{$key}` in $z-layers.";
+    @return null;
+}
+
+@function icon($key) {
+    @if map-has-key($icons, $key) {
+        @return map-get($icons, $key);
+    }
+
+    @warn "Unknown `#{$key}` in $icons.";
+    @return null;
+}
+
+@function bgImg($key) {
+    @if map-has-key($bgImgs, $key) {
+        @return map-get($bgImgs, $key);
+    }
+
+    @warn "Unknown `#{$key}` in $bgImgs.";
+    @return null;
+}
+

@@ -1,0 +1,98 @@
+﻿.flatpickr-day {
+    &.today {
+        border-color: color(calendarTodayBg);
+
+        &:hover {
+            background: color(calendarDayHover);
+            color: color(calendarDayHoverText);
+            border-color: color(calendarDayHover);
+        }
+    }
+
+    &.selected {
+        background: color(calendarDaySelectedBg);
+        color: color(calendarDaySelectedText);
+        border-color: color(calendarDaySelectedBg);
+    }
+
+    &:hover {
+        background: color(calendarDayHover);
+        color: color(calendarDayHoverText);
+        border-color: color(calendarDayHover);
+    }
+
+    &:focus {
+        outline: 1px dashed color(calendarDayFocusOutline);
+        outline-offset: -1px;
+        background: none;
+        border-color: transparent;
+    }
+
+    &:focus-within {
+        outline: 1px dashed color(calendarDayFocusOutline);
+        outline-offset: -1px;
+        background: none;
+        border-color: transparent;
+    }
+}
+
+.flatpickr-footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 16px;
+
+    button {
+        background: color(calendarBtnBg);
+
+        &.flatpickr-clear {
+            color: color(calendarClerBtnText);
+        }
+
+        &.flatpickr-cancel,
+        &.flatpickr-ok {
+            color: color(calendarBtnsText);
+        }
+
+        &:focus {
+            outline: 1px dashed color(calendarBtnsFocusOutline);
+            outline-offset: 2px;
+        }
+    }
+
+    .btns-container {
+        display: flex;
+        justify-content: space-around;
+        column-gap: 24px;
+    }
+}
+
+.flatpickr-prev-month,
+.flatpickr-next-month,
+.flatpickr-monthDropdown-months {
+    &:focus {
+        outline: 1px dashed color(calendarBtnsFocusOutline);
+        outline-offset: -1px;
+    }
+
+    &:focus-within {
+        outline: 1px dashed color(calendarBtnsFocusOutline);
+        outline-offset: -1px;
+    }
+}
+
+.flatpickr-current-month {
+    input[type=number] {
+        &.cur-year {
+            &:focus {
+                outline: 1px dashed color(calendarBtnsFocusOutline);
+                outline-offset: -1px;
+                background: none;
+            }
+
+            &:focus-within {
+                outline: 1px dashed color(calendarBtnsFocusOutline);
+                outline-offset: -1px;
+            }
+        }
+    }
+}

@@ -1,0 +1,117 @@
+﻿footer {
+    background: linear-gradient(180deg, color(footerBgBlue) 0%, color(black) 100%);
+
+    .content-center {
+        width: 100%;
+        max-width: 1072px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        padding: 41px 0;
+
+        @include respond-to(small) {
+            padding: 41px 24px;
+        }
+
+        @include respond-to(mobile) {
+            max-width: 85%;
+            padding: 41px 0;
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+
+            @include respond-to(mobile) {
+                flex-direction: column;
+                row-gap: 18px;
+            }
+
+            a {
+                font-family: 'Ubuntu';
+                font-weight: 400;
+                font-size: 0.875rem;
+                line-height: 1.4;
+                color: color(footerLinkText);
+
+                &:focus-within {
+                    outline: 1px dashed color(footerLinkOutline);
+                    outline-offset: 4px;
+                }
+            }
+
+            .divider {
+                width: 1px;
+                height: 21px;
+                background-color: color(white);
+                margin: 0 16px;
+
+                @include respond-to(mobile) {
+                    display: none;
+                }
+            }
+        }
+
+        .footer-copy {
+            p {
+                font-family: 'Ubuntu';
+                font-weight: 300;
+                font-size: 0.75rem;
+                line-height: 1.4;
+                margin-bottom: 8px;
+                text-align: center;
+                text-wrap-style: pretty;
+                letter-spacing: -0.06px;
+                color: color(footerCopy);
+
+                @include respond-to(mobile) {
+                    font-weight: 400;
+                }
+
+                span {
+                    font-family: 'Ubuntu';
+                    font-weight: 500;
+                    font-size: 0.75rem;
+                    line-height: 1.4;
+                    color: color(footerCopy);
+                    letter-spacing: -0.06px;
+                }
+
+                a {
+                    font-family: 'Ubuntu';
+                    font-weight: 300;
+                    font-size: 0.75rem;
+                    line-height: 1.4;
+                    letter-spacing: -0.06px;
+                    color: color(footerLinkText);
+                    word-break: break-all;
+                    overflow-wrap: anywhere;
+                    cursor: pointer;
+
+                    @include respond-to(mobile) {
+                        font-weight: 400;
+                    }
+
+                    &:focus-within {
+                        outline: 1px dashed color(footerLinkOutline);
+                        outline-offset: 4px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+body {
+    &.comingSoon-page {
+        .content-center {
+            max-width: 100%;
+            height: 80px;
+           
+        }
+    }
+}
