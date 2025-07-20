@@ -1,4 +1,4 @@
-# IP Address Tracker
+# Sweepstakes site
 
 <p align="center">
   <img src="assets/images/Screenshot.png" width= "450">
